@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+  <meta charset="utf-8">
+  <title>GOV.UK Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <link rel="icon" sizes="48x48" href="/favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/govuk-frontend@5.0.0/dist/govuk/govuk-frontend.min.css">
+  <style>
+    .loading-spinner {
+      display: none;
+      text-align: center;
+      margin: 30px 0;
+    }
+    .loading-spinner.active {
+      display: block;
+    }
+    .spinner {
+      border: 4px solid #dee0e2;
+      border-top: 4px solid #005ea5;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 15px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="govuk-template__body">
+  <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' govuk-frontend-supported' : '');</script>
+
+  <header class="govuk-header" role="banner" data-module="govuk-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="govuk-header__logo">
+        <a href="/" class="govuk-header__link govuk-header__link--homepage">
+          <span class="govuk-header__logotype">
+            <svg aria-hidden="true" focusable="false" class="govuk-header__logotype-crown" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 97" height="30" width="36">
+              <path fill="currentColor" fill-rule="evenodd" d="M25 30.2c3.5 1.5 7.7-.2 9.1-3.7 1.5-3.6-.2-7.8-3.9-9.2-3.6-1.4-7.6.3-9.1 3.9-1.4 3.5.3 7.5 3.9 9zM9 39.5c3.6 1.5 7.8-.2 9.2-3.7 1.5-3.6-.2-7.8-3.9-9.1-3.6-1.5-7.6.2-9.1 3.8-1.4 3.5.3 7.5 3.8 9zM4.4 57.2c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.5-1.5-7.6.3-9.1 3.8-1.4 3.5.3 7.6 3.9 9.1zm38.3-21.4c3.5 1.5 7.7-.2 9.1-3.8 1.5-3.6-.2-7.7-3.9-9.1-3.6-1.5-7.6.3-9.1 3.8-1.3 3.6.4 7.7 3.9 9.1zm64.4-5.6c-3.6 1.5-7.8-.2-9.1-3.7-1.5-3.6.2-7.8 3.8-9.2 3.6-1.4 7.7.3 9.2 3.9 1.3 3.5-.4 7.5-3.9 9zm15.9 9.3c-3.6 1.5-7.7-.2-9.1-3.7-1.5-3.6.2-7.8 3.7-9.1 3.6-1.5 7.7.2 9.2 3.8 1.5 3.5-.3 7.5-3.8 9zm4.7 17.7c-3.6 1.5-7.8-.2-9.2-3.8-1.5-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.3 3.5-.4 7.6-3.9 9.1zM89.3 35.8c-3.6 1.5-7.8-.2-9.2-3.8-1.4-3.6.2-7.7 3.9-9.1 3.6-1.5 7.7.3 9.2 3.8 1.4 3.6-.3 7.7-3.9 9.1zM69.7 17.7l8.9 4.7V9.3l-8.9 2.8c-.2-.3-.5-.6-.9-.9L72.4 0H59.6l3.5 11.2c-.3.3-.6.5-.9.9l-8.8-2.8v13.1l8.8-4.7c.3.3.6.7.9.9l-5 15.4v.1c-.2.8-.4 1.6-.4 2.4 0 4.1 3.1 7.5 7 8.1h.2c.3 0 .7.1 1 .1.4 0 .7 0 1-.1h.2c4-.6 7.1-4.1 7.1-8.1 0-.8-.1-1.7-.4-2.4V34l-5.1-15.4c.4-.2.7-.6 1-.9zM66 92.8c16.9 0 32.8 1.1 47.1 3.2 4-16.9 8.9-26.7 14-33.5l-9.6-3.4c1 4.9 1.1 7.2 0 10.2-1.5-1.4-3-4.3-4.2-8.7L108.6 76c2.8-2 5-3.2 7.5-3.3-4.4 9.4-10 11.9-13.6 11.2-4.3-.8-6.3-4.6-5.6-7.9 1-4.7 5.7-5.9 8-.5 4.3-8.7-3-11.4-7.6-8.8 7.1-7.2 7.9-13.5 2.1-21.1-8 6.1-8.1 12.3-4.5 20.8-4.7-5.4-12.1-2.5-9.5 6.2 3.4-5.2 7.9-2 7.2 3.1-.6 4.3-6.4 7.8-13.5 7.2-10.3-.9-10.9-8-11.2-13.8 2.5-.5 7.1 1.8 11 7.3L80.2 60c-4.1 4.4-8 5.3-12.3 5.4 1.4-4.4 8-11.6 8-11.6H55.5s6.4 7.2 7.9 11.6c-4.2-.1-8-1-12.3-5.4l1.4 16.4c3.9-5.5 8.5-7.7 10.9-7.3-.3 5.8-.9 12.8-11.1 13.8-7.2.6-12.9-2.9-13.5-7.2-.7-5 3.8-8.3 7.1-3.1 2.7-8.7-4.6-11.6-9.4-6.2 3.7-8.5 3.6-14.7-4.6-20.8-5.8 7.6-5 13.9 2.2 21.1-4.7-2.6-11.9.1-7.7 8.8 2.3-5.5 7.1-4.2 8.1.5.7 3.3-1.3 7.1-5.7 7.9-3.5.7-9-1.8-13.5-11.2 2.5.1 4.7 1.3 7.5 3.3l-4.7-15.4c-1.2 4.4-2.7 7.2-4.3 8.7-1.1-3-.9-5.3 0-10.2l-9.5 3.4c5 6.9 9.9 16.7 14 33.5 14.8-2.1 30.8-3.2 47.7-3.2z"></path>
+            </svg>
+            <span class="govuk-header__logotype-text">GOV.UK</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="govuk-width-container">
+    <main class="govuk-main-wrapper">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div id="formContainer">
+            <h1 class="govuk-heading-xl">Tell us about your problem</h1>
+
+            <form id="submissionForm" novalidate>
+
+            <!-- Name field -->
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--m" for="name">
+                Name
+              </label>
+              <input class="govuk-input" id="name" name="name" type="text">
+            </div>
+
+            <!-- Age group field -->
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--m" for="age-group">
+                Age group
+              </label>
+              <input class="govuk-input govuk-input--width-5" id="age-group" name="ageGroup" type="number" min="0">
+            </div>
+
+            <!-- Gender dropdown -->
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--m" for="gender">
+                Gender
+              </label>
+              <select class="govuk-select" id="gender" name="gender">
+                <option value="">Select an option</option>
+                <option value="female">Female</option>
+                <option value="male">Male</option>
+                <option value="non-binary">Non-binary</option>
+                <option value="prefer-not-to-say">Prefer not to say</option>
+              </select>
+            </div>
+
+            <!-- Issue field (large text area) -->
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--m" for="issue">
+                Issue
+              </label>
+              <textarea class="govuk-textarea" id="issue" name="issue" rows="8"></textarea>
+            </div>
+
+            <!-- Postcode field -->
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--m" for="postcode">
+                Postcode
+              </label>
+              <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text" autocomplete="postal-code">
+            </div>
+
+            <!-- Household composition field -->
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-label--m" for="household-composition">
+                Household composition
+              </label>
+              <div class="govuk-hint">
+                For example, names and ages of group members and relationship status
+              </div>
+              <textarea class="govuk-textarea" id="household-composition" name="householdComposition" rows="5"></textarea>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="govuk-button" data-module="govuk-button" id="submitBtn">
+              Submit
+            </button>
+
+          </form>
+          </div>
+
+          <!-- Loading spinner -->
+          <div id="loadingSpinner" class="loading-spinner">
+            <div class="spinner"></div>
+            <p class="govuk-body">Processing your submission...</p>
+          </div>
+
+          <!-- Response area -->
+          <div id="responseArea" style="display: none; margin-top: 30px;">
+            <div class="govuk-panel govuk-panel--confirmation">
+              <h2 class="govuk-panel__title">Form submitted successfully</h2>
+            </div>
+            <div class="govuk-inset-text" id="agentResponse"></div>
+          </div>
+
+          <!-- Error area -->
+          <div id="errorArea" style="display: none; margin-top: 30px;">
+            <div class="govuk-error-summary">
+              <h2 class="govuk-error-summary__title">There was a problem</h2>
+              <div class="govuk-error-summary__body">
+                <p id="errorMessage"></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/govuk-frontend@5.0.0/dist/govuk/govuk-frontend.min.js"></script>
+  <script>
+    if (window.GOVUKFrontend) {
+      window.GOVUKFrontend.initAll();
+    }
+
+    // Replace with your API Gateway endpoint URL
+    const API_ENDPOINT = 'https://mofcej4j9h.execute-api.us-east-1.amazonaws.com/stage_1/submit';
+
+    document.getElementById('submissionForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const submitBtn = document.getElementById('submitBtn');
+      const responseArea = document.getElementById('responseArea');
+      const errorArea = document.getElementById('errorArea');
+      const loadingSpinner = document.getElementById('loadingSpinner');
+      
+      // Hide previous responses
+      responseArea.style.display = 'none';
+      errorArea.style.display = 'none';
+      
+      // Show loading spinner
+      loadingSpinner.classList.add('active');
+      
+      // Disable submit button
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+      
+      // Collect form data
+      const formData = {
+        name: document.getElementById('name').value,
+        ageGroup: document.getElementById('age-group').value,
+        gender: document.getElementById('gender').value,
+        issue: document.getElementById('issue').value,
+        postcode: document.getElementById('postcode').value,
+        householdComposition: document.getElementById('household-composition').value
+      };
+      
+      try {
+        console.log('Sending request to:', API_ENDPOINT);
+        console.log('Form data:', formData);
+        
+        const response = await fetch(API_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+        
+        console.log('Response status:', response.status);
+        console.log('Response headers:', response.headers);
+        
+        let result = await response.json();
+        console.log('Result:', result);
+        
+        // Handle Lambda proxy integration response format
+        if (result.body && typeof result.body === 'string') {
+          result = JSON.parse(result.body);
+        }
+        
+        if (result.success) {
+          // Hide the form and spinner
+          document.getElementById('formContainer').style.display = 'none';
+          loadingSpinner.classList.remove('active');
+          
+          // Show success message and agent response
+          document.getElementById('agentResponse').innerHTML = 
+            '<h3 class="govuk-heading-m">Response:</h3>' +
+            '<p>' + result.agentResponse.replace(/\n/g, '<br>') + '</p>';
+          responseArea.style.display = 'block';
+          
+          // Scroll to top
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          throw new Error(result.error || 'Unknown error occurred');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        loadingSpinner.classList.remove('active');
+        document.getElementById('errorMessage').textContent = error.message;
+        errorArea.style.display = 'block';
+      } finally {
+        // Re-enable submit button
+        loadingSpinner.classList.remove('active');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+      }
+    });
+  </script>
+</body>
+</html>
