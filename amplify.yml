@@ -9,6 +9,7 @@ frontend:
         - mkdir -p dist
         - cp index.html dist/
         - cp favicon.ico dist/
+        - cp logo.png dist/
   artifacts:
     baseDirectory: dist
     files:
