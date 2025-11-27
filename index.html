@@ -28,6 +28,38 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
+    .info-icon {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: #1d70b8;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-left: 8px;
+      position: relative;
+    }
+    .info-tooltip {
+      display: none;
+      position: absolute;
+      background-color: #0b0c0c;
+      color: white;
+      padding: 10px;
+      border-radius: 4px;
+      width: 250px;
+      left: 30px;
+      top: -10px;
+      z-index: 1000;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .info-icon:hover .info-tooltip {
+      display: block;
+    }
   </style>
 </head>
 <body class="govuk-template__body">
@@ -52,8 +84,27 @@
     <main class="govuk-main-wrapper">
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
+          <!-- Logo -->
+          <div style="margin-bottom: 30px;">
+            <img src="logo.png" alt="Logo" style="max-width: 150px; height: auto;">
+          </div>
+
           <div id="formContainer">
             <h1 class="govuk-heading-xl">Tell us about your problem</h1>
+
+            <!-- Homelessness banner -->
+            <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+              <div class="govuk-notification-banner__header">
+                <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                  Important
+                </h2>
+              </div>
+              <div class="govuk-notification-banner__content">
+                <p class="govuk-notification-banner__heading">
+                  If you are currently experiencing homelessness please <a class="govuk-notification-banner__link" href="#">follow this link to get help</a>
+                </p>
+              </div>
+            </div>
 
             <form id="submissionForm" novalidate>
 
@@ -65,10 +116,10 @@
               <input class="govuk-input" id="name" name="name" type="text">
             </div>
 
-            <!-- Age group field -->
+            <!-- Age field -->
             <div class="govuk-form-group">
               <label class="govuk-label govuk-label--m" for="age-group">
-                Age group
+                Age
               </label>
               <input class="govuk-input govuk-input--width-5" id="age-group" name="ageGroup" type="number" min="0">
             </div>
@@ -109,9 +160,24 @@
                 Household composition
               </label>
               <div class="govuk-hint">
-                For example, names and ages of group members and relationship status
+                For example, ages of group members and relationship status
               </div>
               <textarea class="govuk-textarea" id="household-composition" name="householdComposition" rows="5"></textarea>
+            </div>
+
+            <!-- Consent checkbox -->
+            <div class="govuk-form-group">
+              <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="consent" name="consent" type="checkbox" value="yes">
+                  <label class="govuk-label govuk-checkboxes__label" for="consent">
+                    I'm happy for this information to be used by my local council, and linked with existing information, to provide me with tailored help.
+                    <span class="info-icon">i
+                      <span class="info-tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
             </div>
 
             <!-- Submit button -->
@@ -186,7 +252,8 @@
         gender: document.getElementById('gender').value,
         issue: document.getElementById('issue').value,
         postcode: document.getElementById('postcode').value,
-        householdComposition: document.getElementById('household-composition').value
+        householdComposition: document.getElementById('household-composition').value,
+        consent: document.getElementById('consent').checked
       };
       
       try {
